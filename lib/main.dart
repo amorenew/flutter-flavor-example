@@ -1,12 +1,20 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flavor_example/util/logger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_flipperkit/flutter_flipperkit.dart';
 import 'package:provider/provider.dart';
 
 import 'app.dart';
 import 'flavor.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  FlipperClient.getDefault()
+    ..addPlugin(FlipperNetworkPlugin())
+    ..addPlugin(FlipperSharedPreferencesPlugin())
+    ..start();
+
   final flavor = EnumToString.fromString(
     Flavor.values,
     const String.fromEnvironment('FLAVOR'),

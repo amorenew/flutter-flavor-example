@@ -13,6 +13,8 @@ dependencies:
   provider: any
   firebase_auth: any
   cloud_firestore: any
+  flutter_flipperkit: ^0.0.23
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
